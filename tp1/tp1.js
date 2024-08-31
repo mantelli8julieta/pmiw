@@ -1,7 +1,7 @@
 /*
 Mantelli Julieta - 94730/3
  Comisión 3 - David Bedoian
- link al video:
+ link al video: https://youtu.be/pJmhBDarsx0
  */
 
 // parámetros d color d la grilla
