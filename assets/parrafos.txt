@@ -6,7 +6,7 @@ texto 0
 } Linguini lo descubre y lo echa a la calle solo por ser una rata
 } Linguini lo descubre y decide hacer equipo con Remy
 } Remy, escondido debajo del gorro de Linguini, controla sus brazos para ayudarlo a cocinar. Rápidamente se convierte en una estrella en el restaurante, creando platos que impresionan a los clientes
-} Remy decide irse cuando tiene una pelea con Linguini: se siente abrumadno por la situación y no quiere reconocer la contribución de Remy.
+} Remy decide irse cuando tiene una pelea con Linguini: se siente abrumado por la situación y no quiere reconocer la contribución de Remy.
 } Anton Ego, un reconocido crítico de cocina visita el restaurante. Remy cocina un ratatouille, un plato sencillo que logra conmover totalmente a Ego.
 texto 10
 texto 11
