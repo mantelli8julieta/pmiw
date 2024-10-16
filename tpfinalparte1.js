@@ -5,7 +5,7 @@
  */
 
 var pantallaActual = 0;
-var pantallasTotales = 14;
+var pantallasTotales = 15;
 let titulos, parrafos, texto;
 let fondos = [];
 
@@ -39,11 +39,11 @@ function draw() {
   text("parrafo esto es un parrafo mira q lindo parrafo!", 100, 275);
   cuadritoTexto();
   todasLasPantallas();
-/*
+
   print("mouseX es " + mouseX);
   print("mouseY es " + mouseY);
-  */
-  print("pantalla es " + pantallaActual);
+  
+
 }
 
 function mousePressed() {

@@ -3,24 +3,23 @@ function cuadritoTexto() {
   rect(20, 340, 600, 125, 10);
   fill(0);
   textSize(15);
+  text(texto[pantallaActual], 30, 370, 580, 250);
 }
 
 function botonContinuar() {
-  ellipse(580, 430, 40, 40);
+  rect(560, 410, 40, 40);
   fill(255);
-  triangle(580, 430, 580, 450, 595, 440);
+  triangle(575, 420, 575, 440, 590, 431);
 }
 
 function todasLasPantallas() {
   if (pantallaActual == 0) {
     image(fondos[0], 0, 0, 640, 480);
-    cuadritoTexto();
     botonContinuar();
   }
 
   if (pantallaActual == 1) {
     image(fondos[1], 0, 0, 640, 480);
-    cuadritoTexto();
     botonContinuar();
   }
 
