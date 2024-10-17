@@ -1,3 +1,11 @@
+/*function botonSonido(mouseX, mouseY) {
+ if (mouseX > 10 && mouseX < 100 && mouseY > 10 && mouseY < 100) {
+ return true;
+ } else {
+ return false;
+ }
+ }
+ */
 function interaccionPantallas(mouseX, mouseY) {
   //botón iniciar aventura
   if (pantallaActual == 0) {
@@ -24,6 +32,7 @@ function interaccionPantallas(mouseX, mouseY) {
       pantallaActual += 1;
     }
   }
+
   //pantallas de decisión
   if (pantallaActual == 2) {
     //opción A
@@ -53,9 +62,11 @@ function interaccionPantallas(mouseX, mouseY) {
     //opción A
     if (mouseX > 174 && mouseX < 272 && mouseY > 425 && mouseY < 455) {
       pantallaActual = 9;
-    } else if (mouseX > 370 && mouseX < 468 && mouseY > 425 && mouseY < 455) {
+    } else if (pantallaActual == 8) {
       //opción B
-      pantallaActual = 10;
+      if (mouseX > 370 && mouseX < 468 && mouseY > 425 && mouseY < 455) {
+        pantallaActual = 10;
+      }
     }
   }
 
@@ -63,20 +74,22 @@ function interaccionPantallas(mouseX, mouseY) {
     //opción A
     if (mouseX > 174 && mouseX < 272 && mouseY > 425 && mouseY < 455) {
       pantallaActual = 11;
-    } else if (mouseX > 370 && mouseX < 468 && mouseY > 425 && mouseY < 455) {
+    } else if (pantallaActual == 10) {
       //opción B
-      pantallaActual = 12;
+      if (mouseX > 370 && mouseX < 468 && mouseY > 425 && mouseY < 455) {
+        pantallaActual = 12;
+      }
     }
   }
 
-  //opción A
+  //opción B
   if (pantallaActual == 11) {
     if (mouseX > 370 && mouseX < 468 && mouseY > 425 && mouseY < 455) {
       pantallaActual = 13;
     }
   }
 
-  //opción B
+  //opción A
   if (pantallaActual == 12) {
     if (mouseX > 174 && mouseX < 272 && mouseY > 425 && mouseY < 455) {
       pantallaActual = 13;
