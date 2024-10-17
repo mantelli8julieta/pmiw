@@ -55,19 +55,17 @@ function interaccionPantallas(mouseX, mouseY) {
       pantallaActual = 9;
     } else if (mouseX > 370 && mouseX < 468 && mouseY > 425 && mouseY < 455) {
       //opción B
-        pantallaActual = 10;
-      }
+      pantallaActual = 10;
     }
+  }
 
   if (pantallaActual == 10) {
     //opción A
     if (mouseX > 174 && mouseX < 272 && mouseY > 425 && mouseY < 455) {
       pantallaActual = 11;
-    } else if (pantallaActual == 10) {
+    } else if (mouseX > 370 && mouseX < 468 && mouseY > 425 && mouseY < 455) {
       //opción B
-      if (mouseX > 370 && mouseX < 468 && mouseY > 425 && mouseY < 455) {
-        pantallaActual = 12;
-      }
+      pantallaActual = 12;
     }
   }
 
@@ -77,15 +75,13 @@ function interaccionPantallas(mouseX, mouseY) {
       pantallaActual = 13;
     }
   }
-  
+
   //opción B
   if (pantallaActual == 12) {
     if (mouseX > 174 && mouseX < 272 && mouseY > 425 && mouseY < 455) {
       pantallaActual = 13;
     }
   }
-
-
 
   //botón reset para pantallas finales
   if (pantallaActual == 5 || pantallaActual == 9 || pantallaActual == 13 || pantallaActual == 14) {

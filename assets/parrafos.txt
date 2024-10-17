@@ -3,13 +3,13 @@ texto 1
 } Remy es una rata que aprecia la buena comida y sueña con ser chef. Un día, por accidente, termina en las alcantarillas, separado de su familia y debajo del restaurant de su chef favorito.
 } Remy decide probar suerte y se cuela en la cocina del restaurante.
 } En un acto de valentía, mejora una sopa que accidentalmente ha sido arruinada por Linguini, un joven que trabaja como limpiador en el restaurante, quien termina llevándose todo el crédito.
-} Linguini lo descubre y lo echa a la calle solo por ser una rata FINAL 2
+} Linguini lo descubre y lo echa a la calle solo por ser una rata [FINAL 2]
 } Linguini descubre a Remy, e impresionado con sus habilidades, decide hacer equipo con él.
 } Remy, escondido debajo del gorro de Linguini, controla sus brazos para ayudarlo a cocinar. Rápidamente se convierte en una estrella en el restaurante, elaborando platos que impresionan a los clientes.
 } Se anuncia la visita de Anton Ego, un crítico culinario tan reconocido como temido entre la industria gastronómica por ser muy severo y exigente.
-} Remy decide irse cuando tiene una pelea con Linguini: se siente abrumado por la situación y no quiere reconocer la contribución de Remy. FINAL 3
+} Remy decide irse cuando tiene una pelea con Linguini: se siente abrumado por la situación y no quiere reconocer la contribución de Remy. [FINAL 3]
 } Remy cocina un ratatouille, un plato sencillo que logra conmover totalmente a Ego, quien lo asocia con la cocina de su madre.
 } Ego queda tan impresionado con este plato que cambia su perspectiva sobre el restaurante, y escribe una crítica muy positiva. 
 } Ego queda tan impresionado con este plato que cambia su perspectiva sobre el restaurante, y escribe una crítica muy positiva. Sin embargo, poco después el restaurante es clausurado por la presencia de ratas.
-} Gracias a es
-} Remy decide volver con su familia y no seguir sus sueños, convencido por su amigo [no recuerdo su nombre pero el ratoncito ese gordito]. FINAL 1
+} Gracias a eso, Remy, Linguini y Colette abren un nuevo restaurante más pequeño, donde Remy cocina libremente para una clientela cada vez más grande. [FINAL 4]
+} Remy decide volver con su familia y no seguir sus sueños de ser chef, convencido por su hermano Émile. [FINAL 1]
