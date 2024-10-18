@@ -123,7 +123,7 @@ function todasLasPantallas() {
   if (pantallaActual == 12) {
     image(fondos[pantallaActual], 0, 0, 640, 480);
     cuadritoTexto();
-    botonesDecisiones();
+    botonContinuar();
   }
 
   if (pantallaActual == 13) {

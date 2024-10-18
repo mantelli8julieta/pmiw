@@ -1,6 +1,6 @@
 texto 0
 texto 1
-} Remy es una rata que aprecia la buena comida y sueña con ser chef. Un día, por accidente, termina en las alcantarillas, separado de su familia y debajo del restaurant de su chef favorito.
+ Remy es una rata que aprecia la buena comida y sueña con ser chef. Un día, por accidente, termina en las alcantarillas, separado de su familia y debajo del restaurant de su chef favorito.
 } Remy decide probar suerte y se cuela en la cocina del restaurante.
 } En un acto de valentía, mejora una sopa que accidentalmente ha sido arruinada por Linguini, un joven que trabaja como limpiador en el restaurante, quien termina llevándose todo el crédito.
 } Linguini lo descubre y lo echa a la calle solo por ser una rata [FINAL 2]
