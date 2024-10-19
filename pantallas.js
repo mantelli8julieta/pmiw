@@ -54,6 +54,7 @@ function todasLasPantallas() {
   if (pantallaActual == 0) {
     image(fondos[pantallaActual], 0, 0, 640, 480);
     pantallaInicio();
+    musicaFondo.stop();
   }
 
   if (pantallaActual == 1) {
@@ -64,6 +65,7 @@ function todasLasPantallas() {
     image(fondos[pantallaActual], 0, 0, 640, 480);
     cuadritoTexto();
     botonesDecisiones();
+    musicaFondo.play();
   }
 
   if (pantallaActual == 3) {
