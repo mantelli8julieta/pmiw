@@ -1,3 +1,9 @@
+/* TP#Final - Comisión 3, David Bedoian
+ Mantelli Julieta 94730/3 - Luna Carabatti
+ Película elegida: Ratatouille
+ Video explicativo:
+ */
+
 var pantallaActual = 0;
 var pantallasTotales = 15;
 let titulos, parrafos, texto;
