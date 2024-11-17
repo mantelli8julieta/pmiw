@@ -2,6 +2,7 @@
 TP Final PMIW (parte 2)
 Comisión 3 - David Bedoian
 Carabatti Luna y Mantelli Julieta
+Video explicativo:
 */
 
 let jugador;
