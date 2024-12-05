@@ -1,8 +1,8 @@
 class Juego {
   constructor(xJugador, yJugador) {
     this.temporizador = 0;
+    this.inicio = 0; // aparte del temporizador, lo que se guarda es el "momento" en que el juego empieza
     this.puntaje = 0;
-    //this.boton = new Boton();
     this.jugador = new Jugador(mouseX, 400);
     this.cantIngredientes = 5;
 
@@ -19,7 +19,7 @@ class Juego {
       this.ingredientes[i].actualizar(this.jugador);
     }
     this.mostrarPuntaje();
-    // this.logicaTemporizador();
+    //  this.logicaGanarPerder();
   }
 
   mostrarPuntaje() {
@@ -31,10 +31,20 @@ class Juego {
     pop();
   }
 
-  logicaTemporizador() {
-    if (juegoActivo = true) {
-    } else if (this.temporizador == 70 && puntaje <= 50) {
-      this.temporizador =+ 0.5;
+  /*la lógica de ganar/perder, basada en el temporizador
+   logicaGanarPerder() {
+   
+   if (this.temporizador == 70 && puntaje <= 50) {
+   }
+   }
+   */
+
+  tiempoDesdeJuegoActivo() {
+    if (juegoActivo == true) {
+      return  (millis() - this.inicio / 1000);
+      //se divide en 1000 para conseguir los segundos
+    } else {
+      return 0;
     }
   }
 

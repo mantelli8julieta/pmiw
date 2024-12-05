@@ -1,8 +1,8 @@
 class Ingredientes {
   constructor() {
     this.posX = random(width);
-    this.posY = random(-300, -900);
-    this.velCaida = 5;
+    this.posY = random(-300, -1300);
+    this.velCaida = 3;
     this.tipo = int(random(0, 3));
     this.tamImg = 50;
     
