@@ -64,6 +64,7 @@ function interaccionPantallas(mouseX, mouseY) {
       }
     } else {
       if ((mouseX > 370 && mouseX < 468 && mouseY > 425 && mouseY < 455) || (mouseX > 174 && mouseX < 272 && mouseY > 425 && mouseY < 455)) {
+        juegoActivo = true;
         pantallaActual = 15;
       }
     }

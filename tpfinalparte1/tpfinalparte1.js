@@ -13,18 +13,18 @@ let musicaFondo;
 let reproduciendo = false;
 let juegoGanado = false;
 
- //variables del juego
-  let tiempoRestante = 45; // Tiempo inicial en segundos
-  let tiempoInicio; // Almacena el tiempo cuando se inicia el juego
-  let juegoTerminado = false;
-  let inicioJuego = 0;
-  let imgIngredientes = [];
-  let juegoActivo = false;
-  let instruccionesVisibles = false;
-  let creditosVisibles = false;
+//variables del juego
+let tiempoRestante = 45; // Tiempo inicial en segundos
+let tiempoInicio; // Almacena el tiempo cuando se inicia el juego
+let juegoTerminado = false;
+let inicioJuego = 0;
+let imgIngredientes = [];
+let juegoActivo = false;
+let instruccionesVisibles = false;
+let creditosVisibles = false;
 
-  let pantPerdiste = false;
-  let pantGanaste = false;
+let pantPerdiste = false;
+let pantGanaste = false;
 
 
 let color1, color2;
@@ -63,6 +63,18 @@ function setup() {
   color1 = color(46, 83, 96); // Amarillito
   color2 = color(77, 72, 99); // Verde claro
 
+  // Botones de inicio
+  botonJugar = new Botones(210, 260, 200, 50, 'JUGAR');
+  botonInstrucciones = new Botones(115, 420, 200, 50, 'Instrucciones');
+  botonCreditos = new Botones(365, 420, 150, 50, 'Créditos');
+
+  //botón reset
+  botonReset = new Botones(215, 150, 200, 50, 'Reiniciar', '');
+
+  // Pop-ups de instrucciones y créditos
+  popUpCreditos = new Botones(150, 90, 350, 250, 'Créditos\nCódigo, Imágenes y Diseño:\nCarabatti Luna y Mantelli Julieta', 'Créditos');
+  popUpInstrucciones = new Botones(150, 90, 350, 250, 'Remy tiene que cocinar\nun ratatouille!\nAyudalo recolectando ingredientes!\nGaná [30] puntos antes de que\nel tiempo se termine para ganar!', 'Instrucciones');
+
   createCanvas(640, 480);
   musicaFondo.setVolume(0.5);
   musicaFondo.onended(() => {
@@ -82,16 +94,91 @@ function setup() {
 
 function draw() {
   background(201, 198, 179);
+  
+  console.log("el juego està activo?" + juegoActivo);
+  
   cuadritoTexto();
   todasLasPantallas();
 
   print("pantalla es " + pantallaActual);
 
-  /*print("mouseX es " + mouseX);
-   print("mouseY es " + mouseY);*/
   image(botonSonido, 10, 10, 70, 70);
 
-  juego.actualizar();
+  //fuerza la pantalla de inicio para evitar interferencias
+  if (pantallaActual == 0 && juegoActivo == false) {
+    // Fondo de la pantalla de inicio
+    image(inicio, 0, 0, 640, 480);
+
+    // Título del juego
+    textFont(fuenteInicio);
+    fill(255);
+    textSize(40);
+    text("Remy Catch!", 400, 80);
+
+    botonJugar.mostrarBotonUno();
+    botonInstrucciones.mostrarBotonDos();
+    botonCreditos.mostrarBotonDos();
+    return;
+  }
+
+  // Pantalla del juego
+  if (juegoActivo == true) {
+    if (!juegoTerminado) {
+
+      // Calcula el tiempo restante
+      tiempoRestante = 45 - Math.floor((millis() - tiempoInicio) / 1000);
+
+      if (tiempoRestante <= 0) {
+        juegoTerminado = true;
+        juegoActivo = false;
+
+        if (juego.puntaje >= 30) {
+          pantGanaste = true;
+        } else {
+          pantPerdiste = true;
+        }
+      } else {
+        // Fondo del juego
+        background(250);
+        image(fondo, 0, 0, 640, 480);
+
+        // Dibuja el temporizador
+        textFont(fuentePuntos);
+        fill(255); // Fondo del texto
+
+        fill(255); // Texto negro
+        textSize(30);
+        text("Tiempo: " + tiempoRestante + "s", 400, 40); // Texto del temporizador
+
+        juego.actualizar();
+      }
+    }
+  } else if (pantGanaste) {
+    juego.mostrarGanaste();
+  } else if (pantPerdiste) {
+    juego.mostrarPerdiste();
+  } else {
+    // Fondo de la pantalla de inicio
+    image(inicio, 0, 0, 640, 480);
+
+    // Título del juego
+    textFont(fuenteInicio);
+    fill(255);
+    textSize(40);
+    text("Remy Catch!", 400, 80);
+
+    botonJugar.mostrarBotonUno();
+    botonInstrucciones.mostrarBotonDos();
+    botonCreditos.mostrarBotonDos();
+  }
+
+  if (instruccionesVisibles) {
+    popUpInstrucciones.mostrarPopUp();
+  }
+
+  if (creditosVisibles) {
+    popUpCreditos.mostrarPopUp();
+  }
 
   print("tiempo: " + tiempoRestante);
   print("mouseX: " + mouseX);
@@ -100,6 +187,7 @@ function draw() {
 
 function mousePressed() {
   interaccionPantallas(mouseX, mouseY);
+
   if (mouseX > 10 && mouseX < 100 && mouseY > 10 && mouseY < 100 && pantallaActual == 0) {
     if (!reproduciendo) {
       musicaFondo.play();
