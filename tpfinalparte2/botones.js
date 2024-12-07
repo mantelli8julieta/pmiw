@@ -36,4 +36,13 @@ class Botones {
     text(this.texto, this. posX + 15, this.posY + 90);
     image(botonCerrar, 430, 100, 60, 60);
   }
+
+  mostrarBotonReinicio() {
+    fill(color1);
+    rect(this.posX, this.posY, this.ancho, this.alto, 10, 10, 10, 10);
+    textSize(18);
+    textFont(fuenteTextos);
+    fill(0);
+    text(this.texto, this.posX + 55, this.posY + 30);
+  }
 }

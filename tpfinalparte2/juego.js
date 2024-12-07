@@ -13,7 +13,7 @@ class Juego {
   }
 
   actualizar() {
-    image(fondo, 0, 0, 640, 480);
+    //image(fondo, 0, 0, 640, 480);
     this.jugador.actualizar();
     for (let i = 0; i < this.ingredientes.length; i++) {
       this.ingredientes[i].actualizar(this.jugador);
@@ -31,14 +31,6 @@ class Juego {
     pop();
   }
 
-  /*la lógica de ganar/perder, basada en el temporizador
-   logicaGanarPerder() {
-   
-   if (this.temporizador == 70 && puntaje <= 50) {
-   }
-   }
-   */
-
   tiempoDesdeJuegoActivo() {
     if (juegoActivo == true) {
       return  (millis() - this.inicio / 1000);
@@ -51,5 +43,19 @@ class Juego {
   mostrarJuego() {
     juego.actualizar();
     this.jugador.actualizar();
+  }
+
+  mostrarPerdiste() {
+    image(perdiste, 0, 0, 640, 480);
+    textSize(40);
+    fill(255);
+    botonReset.mostrarBotonReinicio();
+  }
+
+  mostrarGanaste() {
+    image(ganaste, 0, 0, 640, 480);
+    textSize(40);
+    fill(255);
+    botonReset.mostrarBotonReinicio();
   }
 }
