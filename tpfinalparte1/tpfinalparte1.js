@@ -49,16 +49,19 @@ function preload() {
   perdiste = loadImage("assets/assetsjuego/perdiste.png");
 
 
+  //carga las imágenes de los 3 ingredientes
   for (let i = 0; i < 3; i++) {
     imgIngredientes[i] = loadImage("assets/assetsjuego/ingrediente_" + i + ".png");
   }
 
+  //carga todas las imágenes d fondo
   for (let num = 0; num < pantallasTotales; num+=1) {
     fondos[num] = loadImage("assets/imgs/img" + num + ".jpg");
   }
 }
 
 function setup() {
+  createCanvas(640, 480);
   colorMode(HSB);
   color1 = color(46, 83, 96); // Amarillito
   color2 = color(77, 72, 99); // Verde claro
@@ -75,125 +78,105 @@ function setup() {
   popUpCreditos = new Botones(150, 90, 350, 250, 'Créditos\nCódigo, Imágenes y Diseño:\nCarabatti Luna y Mantelli Julieta', 'Créditos');
   popUpInstrucciones = new Botones(150, 90, 350, 250, 'Remy tiene que cocinar\nun ratatouille!\nAyudalo recolectando ingredientes!\nGaná [30] puntos antes de que\nel tiempo se termine para ganar!', 'Instrucciones');
 
-  createCanvas(640, 480);
-  musicaFondo.setVolume(0.5);
-  musicaFondo.onended(() => {
-    if (reproduciendo) {
-      musicaFondo.play();
-    }
-  }
-  );
 
-  function reiniciarSonido() {
-    musicaFondo.play();
-  }
-
+  /*musicaFondo.setVolume(0.5);
+   musicaFondo.onended(() => {
+   if (reproduciendo) {
+   musicaFondo.play();
+   }
+   }
+   );
+   
+   function reiniciarSonido() {
+   musicaFondo.play();
+   }
+   */
   juego = new Juego();
 }
 
 
 function draw() {
   background(201, 198, 179);
-  
-  console.log("el juego està activo?" + juegoActivo);
-  
-  cuadritoTexto();
-  todasLasPantallas();
 
-  print("pantalla es " + pantallaActual);
-
-  image(botonSonido, 10, 10, 70, 70);
-
-  //fuerza la pantalla de inicio para evitar interferencias
-  if (pantallaActual == 0 && juegoActivo == false) {
-    // Fondo de la pantalla de inicio
-    image(inicio, 0, 0, 640, 480);
-
-    // Título del juego
-    textFont(fuenteInicio);
-    fill(255);
-    textSize(40);
-    text("Remy Catch!", 400, 80);
-
-    botonJugar.mostrarBotonUno();
-    botonInstrucciones.mostrarBotonDos();
-    botonCreditos.mostrarBotonDos();
-    return;
+  // Control central de pantallas
+  if (pantallaActual === 0) {
+    pantallaInicio();
+  } else if (pantallaActual === 1) {
+    pantallaCreditos();
+  } else if (pantallaActual >= 2 && pantallaActual <= 14 && pantallaActual !== 10) {
+    todasLasPantallas(); // Navegación normal de la aventura gráfica
+  } else if (pantallaActual === 10) {
+    pantallaMinijuego();
+  } else if (pantallaActual === 15) {
+    pantallaJuegoCompleto();
   }
+}
 
-  // Pantalla del juego
-  if (juegoActivo == true) {
-    if (!juegoTerminado) {
+// console.log("el juego está activo?" + juegoActivo);
 
-      // Calcula el tiempo restante
-      tiempoRestante = 45 - Math.floor((millis() - tiempoInicio) / 1000);
+cuadritoTexto();
+todasLasPantallas();
 
-      if (tiempoRestante <= 0) {
-        juegoTerminado = true;
-        juegoActivo = false;
+// print("pantalla es " + pantallaActual);
 
-        if (juego.puntaje >= 30) {
-          pantGanaste = true;
-        } else {
-          pantPerdiste = true;
-        }
-      } else {
-        // Fondo del juego
-        background(250);
-        image(fondo, 0, 0, 640, 480);
+image(botonSonido, 10, 10, 70, 70);
 
-        // Dibuja el temporizador
-        textFont(fuentePuntos);
-        fill(255); // Fondo del texto
+//fuerza la pantalla de inicio para evitar interferencias
+if (pantallaActual == 0 && juegoActivo == false) {
+  // Fondo de la pantalla de inicio
+  image(inicio, 0, 0, 640, 480);
 
-        fill(255); // Texto negro
-        textSize(30);
-        text("Tiempo: " + tiempoRestante + "s", 400, 40); // Texto del temporizador
+  // Título del juego
+  textFont(fuenteInicio);
+  fill(255);
+  textSize(40);
+  text("Remy Catch!", 400, 80);
 
-        juego.actualizar();
-      }
-    }
-  } else if (pantGanaste) {
-    juego.mostrarGanaste();
-  } else if (pantPerdiste) {
-    juego.mostrarPerdiste();
-  } else {
-    // Fondo de la pantalla de inicio
-    image(inicio, 0, 0, 640, 480);
+  botonJugar.mostrarBotonUno();
+  botonInstrucciones.mostrarBotonDos();
+  botonCreditos.mostrarBotonDos();
+  return;
+}
 
-    // Título del juego
-    textFont(fuenteInicio);
-    fill(255);
-    textSize(40);
-    text("Remy Catch!", 400, 80);
+// Fondo de la pantalla de inicio
+image(inicio, 0, 0, 640, 480);
 
-    botonJugar.mostrarBotonUno();
-    botonInstrucciones.mostrarBotonDos();
-    botonCreditos.mostrarBotonDos();
-  }
+// Título del juego
+textFont(fuenteInicio);
+fill(255);
+textSize(40);
+text("Remy Catch!", 400, 80);
 
-  if (instruccionesVisibles) {
-    popUpInstrucciones.mostrarPopUp();
-  }
+botonJugar.mostrarBotonUno();
+botonInstrucciones.mostrarBotonDos();
+botonCreditos.mostrarBotonDos();
+}
 
-  if (creditosVisibles) {
-    popUpCreditos.mostrarPopUp();
-  }
+if (instruccionesVisibles) {
+  popUpInstrucciones.mostrarPopUp();
+}
 
-  print("tiempo: " + tiempoRestante);
-  print("mouseX: " + mouseX);
-  print("mouseY: " + mouseY);
+if (creditosVisibles) {
+  popUpCreditos.mostrarPopUp();
+}
+
+print("tiempo: " + tiempoRestante);
+print("mouseX: " + mouseX);
+print("mouseY: " + mouseY);
+}
+}
 }
 
 function mousePressed() {
   interaccionPantallas(mouseX, mouseY);
 
-  if (mouseX > 10 && mouseX < 100 && mouseY > 10 && mouseY < 100 && pantallaActual == 0) {
-    if (!reproduciendo) {
-      musicaFondo.play();
-      reproduciendo = true;
-    }
-  }
+  /* if (mouseX > 10 && mouseX < 100 && mouseY > 10 && mouseY < 100 && pantallaActual == 0) {
+   if (!reproduciendo) {
+   musicaFondo.play();
+   reproduciendo = true;
+   }
+   }
+   */
 
   // botón jugar
   if (mouseX > 210 && mouseX < 410 && mouseY > 260 && mouseY < 310) {
