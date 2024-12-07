@@ -1,5 +1,4 @@
 function pantallaInicio() {
-  image(fondos[0], 0, 0, 640, 480);
   fill(51, 0, 15);
   textFont(titulos);
   textSize(50);
@@ -18,58 +17,12 @@ function pantallaInicio() {
   text("créditos", 280, 365);
 }
 
-function pantallaCreditos() {
-  image(fondos[1], 0, 0, 640, 480);
-}
-
 function botonRESET() {
   fill(64, 53, 33);
   rect(273, 425, 100, 30);
   fill(255);
   text("RESET", 298, 445);
 }
-
-function pantallaMinijuego() {
-  if (!juegoActivo && !juegoGanado) {
-    // Pantalla inicial del minijuego
-    image(fondos[10], 0, 0, 640, 480);
-    cuadritoTexto();
-  } else if (juegoActivo) {
-    // Ejecución del minijuego
-    ejecutarMinijuego();
-  } else if (juegoGanado) {
-    // Mostrar opciones de decisión tras ganar
-    mostrarDecisionesPostJuego();
-  }
-}
-
-function ejecutarMinijuego() {
-  tiempoRestante = 45 - Math.floor((millis() - tiempoInicio) / 1000);
-  if (tiempoRestante <= 0) {
-    // Terminar minijuego si el tiempo se acabó
-    juegoGanado = true;
-    resultadoMinijuego();
-  } else {
-    juego.actualizar();
-  }
-}
-
-function resultadoMinijuego() {
-  if (juego.puntaje >= 30) {
-    juegoGanado = true;
-    juegoActivo = false;
-  } else {
-    pantallaActual = 0; // Volver a la pantalla inicial si pierde
-    juegoActivo = false;
-    juegoGanado = false;
-  }
-}
-
-function mostrarDecisionesPostJuego() {
-  image(fondos[10], 0, 0, 640, 480);
-  botonesDecisiones();
-}
-
 
 
 function cuadritoTexto() {
@@ -101,6 +54,7 @@ function todasLasPantallas() {
   if (pantallaActual == 0) {
     image(fondos[pantallaActual], 0, 0, 640, 480);
     pantallaInicio();
+    musicaFondo.stop();
   }
 
   if (pantallaActual == 1) {
@@ -111,7 +65,7 @@ function todasLasPantallas() {
     image(fondos[pantallaActual], 0, 0, 640, 480);
     cuadritoTexto();
     botonesDecisiones();
-    // musicaFondo.play();
+    musicaFondo.play();
   }
 
   if (pantallaActual == 3) {
@@ -156,6 +110,12 @@ function todasLasPantallas() {
     botonRESET();
   }
 
+  if (pantallaActual == 10) {
+    image(fondos[pantallaActual], 0, 0, 640, 480);
+    cuadritoTexto();
+    botonesDecisiones();
+  }
+
   if (pantallaActual == 11) {
     image(fondos[pantallaActual], 0, 0, 640, 480);
     cuadritoTexto();
@@ -174,13 +134,10 @@ function todasLasPantallas() {
     botonRESET();
   }
 
+
   if (pantallaActual == 14) {
     image(fondos[pantallaActual], 0, 0, 640, 480);
     cuadritoTexto();
     botonRESET();
-  }
-
-  if (pantallaActual == 15) {
-    juego.mostrarJuego();
   }
 }
