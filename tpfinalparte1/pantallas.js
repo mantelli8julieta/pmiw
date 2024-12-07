@@ -134,18 +134,14 @@ function todasLasPantallas() {
     botonRESET();
   }
 
-
   if (pantallaActual == 14) {
     image(fondos[pantallaActual], 0, 0, 640, 480);
     cuadritoTexto();
     botonRESET();
   }
-}
 
-if (pantallaActual == 15){
-this.botonInicio = new.Botones();
-}
-
-if (pantallaActual == 16){
-juego.mostrarJuego();
+  if (pantallaActual == 15) {
+    juegoActivo = true;
+    juego.mostrarJuego();
+  }
 }

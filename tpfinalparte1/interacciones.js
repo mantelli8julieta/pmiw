@@ -54,29 +54,33 @@ function interaccionPantallas(mouseX, mouseY) {
       pantallaActual = 10;
     }
   } else if (pantallaActual == 10) {
-    //opción A
-    if (mouseX > 174 && mouseX < 272 && mouseY > 425 && mouseY < 455) {
-      pantallaActual = 16;
-    }//opción B
-    else if (mouseX > 370 && mouseX < 468 && mouseY > 425 && mouseY < 455) {
-      pantallaActual = 16;
+    if (juegoGanado == true) {
+      //opción A
+      if (mouseX > 174 && mouseX < 272 && mouseY > 425 && mouseY < 455) {
+        pantallaActual = 11;
+      }//opción B
+      else if (mouseX > 370 && mouseX < 468 && mouseY > 425 && mouseY < 455) {
+        pantallaActual = 12;
+      }
+    } else {
+      if ((mouseX > 370 && mouseX < 468 && mouseY > 425 && mouseY < 455) || (mouseX > 174 && mouseX < 272 && mouseY > 425 && mouseY < 455)) {
+        pantallaActual = 15;
+      }
     }
   }
 
   //opción B// Cambio directo de pantalla 11 a 13
   else if (pantallaActual == 11) {
     if (mouseX > 560 && mouseX < 600 && mouseY > 410 && mouseY < 450) {
-      pantallaActual = 15;
+      pantallaActual = 13;
     }
   }
   // Opción A en la pantalla 12
   else if (pantallaActual == 12) {
     if (mouseX > 174 && mouseX < 272 && mouseY > 425 && mouseY < 455) {
-      pantallaActual = 15;
+      pantallaActual = 13;
     }
   }
-
-
 
   //botón reset para pantallas finales
   else  if (pantallaActual == 5 || pantallaActual == 9 || pantallaActual == 13 || pantallaActual == 14) {
