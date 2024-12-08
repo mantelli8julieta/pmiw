@@ -1,3 +1,9 @@
+/* TP#Final - Comisión 3, David Bedoian
+ Mantelli Julieta 94730/3 - Luna Carabatti
+ Película elegida: Ratatouille
+ Video explicativo: https://youtu.be/aykEdWW2Ia8  
+ */
+
 let tiempoRestante = 45; // Tiempo inicial en segundos
 let tiempoInicio; // Almacena el tiempo cuando se inicia el juego
 let juegoTerminado = false;
@@ -51,7 +57,7 @@ function draw() {
 
   // Pop-ups de instrucciones y créditos
   popUpCreditos = new Botones(150, 90, 350, 250, 'Créditos\nCódigo, Imágenes y Diseño:\nCarabatti Luna y Mantelli Julieta', 'Créditos');
-  popUpInstrucciones = new Botones(150, 90, 350, 250, 'Remy tiene que cocinar\nun ratatouille!\nAyudalo recolectando ingredientes!\nGaná [50] puntos antes de que\nel tiempo se termine para ganar!', 'Instrucciones');
+  popUpInstrucciones = new Botones(150, 90, 350, 250, 'Remy tiene que cocinar\nun ratatouille!\nAyudalo recolectando ingredientes!\nGaná [30] puntos antes de que\nel tiempo se termine para ganar!', 'Instrucciones');
 
   // Mostrar pop-ups si están activos
   if (instruccionesVisibles) {
